@@ -13,7 +13,9 @@ export default function Index() {
               Master Your Knowledge
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed">
-              Challenge yourself with our comprehensive quiz platform. Test your skills across multiple topics and difficulty levels. Join thousands of learners worldwide.
+              Challenge yourself with our comprehensive quiz platform. Test your
+              skills across multiple topics and difficulty levels. Join
+              thousands of learners worldwide.
             </p>
             <Link
               to="/quiz"
@@ -39,9 +41,12 @@ export default function Index() {
               <div className="bg-primary/10 p-3 rounded-lg w-fit mb-4">
                 <Brain className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">Smart Learning</h3>
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                Smart Learning
+              </h3>
               <p className="text-muted-foreground">
-                Adaptive quizzes designed to test and expand your knowledge across diverse topics.
+                Adaptive quizzes designed to test and expand your knowledge
+                across diverse topics.
               </p>
             </div>
 
@@ -50,9 +55,12 @@ export default function Index() {
               <div className="bg-secondary/10 p-3 rounded-lg w-fit mb-4">
                 <Target className="w-6 h-6 text-secondary" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">Difficulty Levels</h3>
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                Difficulty Levels
+              </h3>
               <p className="text-muted-foreground">
-                Easy, Moderate, and Hard modes. Progress at your own pace and challenge yourself when ready.
+                Easy, Moderate, and Hard modes. Progress at your own pace and
+                challenge yourself when ready.
               </p>
             </div>
 
@@ -61,9 +69,12 @@ export default function Index() {
               <div className="bg-primary/10 p-3 rounded-lg w-fit mb-4">
                 <BookOpen className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">Multiple Topics</h3>
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                Multiple Topics
+              </h3>
               <p className="text-muted-foreground">
-                Choose from 5+ topics including Science, History, Technology, and more.
+                Choose from 5+ topics including Science, History, Technology,
+                and more.
               </p>
             </div>
 
@@ -72,9 +83,12 @@ export default function Index() {
               <div className="bg-secondary/10 p-3 rounded-lg w-fit mb-4">
                 <Zap className="w-6 h-6 text-secondary" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">Instant Feedback</h3>
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                Instant Feedback
+              </h3>
               <p className="text-muted-foreground">
-                Get immediate results with detailed explanations for each question.
+                Get immediate results with detailed explanations for each
+                question.
               </p>
             </div>
 
@@ -83,7 +97,9 @@ export default function Index() {
               <div className="bg-primary/10 p-3 rounded-lg w-fit mb-4">
                 <Trophy className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">Track Progress</h3>
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                Track Progress
+              </h3>
               <p className="text-muted-foreground">
                 Monitor your performance and see how you improve over time.
               </p>
@@ -94,9 +110,12 @@ export default function Index() {
               <div className="bg-secondary/10 p-3 rounded-lg w-fit mb-4">
                 <Users className="w-6 h-6 text-secondary" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">Compete Globally</h3>
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                Compete Globally
+              </h3>
               <p className="text-muted-foreground">
-                Compare your scores with others on our global leaderboard system.
+                Compare your scores with others on our global leaderboard
+                system.
               </p>
             </div>
           </div>
@@ -111,7 +130,14 @@ export default function Index() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {["Science", "History", "Technology", "Geography", "Literature", "Sports"].map((topic, idx) => (
+            {[
+              "Science",
+              "History",
+              "Technology",
+              "Geography",
+              "Literature",
+              "Sports",
+            ].map((topic, idx) => (
               <div
                 key={idx}
                 className="bg-background rounded-lg p-6 text-center border border-border hover:border-primary transition cursor-pointer group"

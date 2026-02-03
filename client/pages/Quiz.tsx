@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { CheckCircle, XCircle, RotateCcw, Trophy, ArrowRight } from "lucide-react";
+import {
+  CheckCircle,
+  XCircle,
+  RotateCcw,
+  Trophy,
+  ArrowRight,
+} from "lucide-react";
 import Layout from "../components/Layout";
 
 interface Question {
@@ -20,47 +26,47 @@ interface Topic {
 }
 
 const TOPICS: Topic[] = [
-  { 
-    id: "science", 
-    name: "Science", 
+  {
+    id: "science",
+    name: "Science",
     icon: "🔬",
     description: "Test your knowledge in physics, chemistry, and biology",
-    questionCount: 20
+    questionCount: 20,
   },
-  { 
-    id: "history", 
-    name: "History", 
+  {
+    id: "history",
+    name: "History",
     icon: "📚",
     description: "Explore historical events and famous figures",
-    questionCount: 20
+    questionCount: 20,
   },
-  { 
-    id: "technology", 
-    name: "Technology", 
+  {
+    id: "technology",
+    name: "Technology",
     icon: "💻",
     description: "Challenge yourself with programming and tech questions",
-    questionCount: 20
+    questionCount: 20,
   },
-  { 
-    id: "geography", 
-    name: "Geography", 
+  {
+    id: "geography",
+    name: "Geography",
     icon: "🌍",
     description: "Master countries, capitals, and world knowledge",
-    questionCount: 20
+    questionCount: 20,
   },
-  { 
-    id: "literature", 
-    name: "Literature", 
+  {
+    id: "literature",
+    name: "Literature",
     icon: "✍️",
     description: "Test your knowledge of books and authors",
-    questionCount: 20
+    questionCount: 20,
   },
-  { 
-    id: "sports", 
-    name: "Sports", 
+  {
+    id: "sports",
+    name: "Sports",
     icon: "⚽",
     description: "Show what you know about athletic competitions",
-    questionCount: 20
+    questionCount: 20,
   },
 ];
 
@@ -72,21 +78,24 @@ const QUESTIONS_DATABASE: Record<string, Record<string, Question[]>> = {
         question: "What is the chemical symbol for gold?",
         options: ["Go", "Gd", "Au", "Ag"],
         correct: 2,
-        explanation: "The chemical symbol for gold is Au, from its Latin name 'Aurum'.",
+        explanation:
+          "The chemical symbol for gold is Au, from its Latin name 'Aurum'.",
       },
       {
         id: 2,
         question: "How many planets are in our solar system?",
         options: ["7", "8", "9", "10"],
         correct: 1,
-        explanation: "There are 8 planets in our solar system: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.",
+        explanation:
+          "There are 8 planets in our solar system: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune.",
       },
       {
         id: 3,
         question: "What is the powerhouse of the cell?",
         options: ["Nucleus", "Mitochondria", "Ribosome", "Chloroplast"],
         correct: 1,
-        explanation: "The mitochondria is known as the powerhouse of the cell because it produces energy (ATP) for cellular activities.",
+        explanation:
+          "The mitochondria is known as the powerhouse of the cell because it produces energy (ATP) for cellular activities.",
       },
     ],
     moderate: [
@@ -102,23 +111,32 @@ const QUESTIONS_DATABASE: Record<string, Record<string, Question[]>> = {
         question: "Which gas makes up approximately 78% of Earth's atmosphere?",
         options: ["Oxygen", "Nitrogen", "Argon", "Carbon Dioxide"],
         correct: 1,
-        explanation: "Nitrogen (N₂) makes up about 78% of the Earth's atmosphere, while oxygen makes up about 21%.",
+        explanation:
+          "Nitrogen (N₂) makes up about 78% of the Earth's atmosphere, while oxygen makes up about 21%.",
       },
     ],
     hard: [
       {
         id: 6,
-        question: "What is the name of the phenomenon where light bends when passing through different media?",
+        question:
+          "What is the name of the phenomenon where light bends when passing through different media?",
         options: ["Diffraction", "Refraction", "Reflection", "Dispersion"],
         correct: 1,
-        explanation: "Refraction is the bending of light when it passes from one medium to another with a different refractive index.",
+        explanation:
+          "Refraction is the bending of light when it passes from one medium to another with a different refractive index.",
       },
       {
         id: 7,
         question: "Which quantum number determines the shape of an orbital?",
-        options: ["Principal (n)", "Angular momentum (l)", "Magnetic (ml)", "Spin (ms)"],
+        options: [
+          "Principal (n)",
+          "Angular momentum (l)",
+          "Magnetic (ml)",
+          "Spin (ms)",
+        ],
         correct: 1,
-        explanation: "The angular momentum quantum number (l) determines the shape of an orbital.",
+        explanation:
+          "The angular momentum quantum number (l) determines the shape of an orbital.",
       },
     ],
   },
@@ -129,14 +147,21 @@ const QUESTIONS_DATABASE: Record<string, Record<string, Question[]>> = {
         question: "In what year did World War II end?",
         options: ["1943", "1944", "1945", "1946"],
         correct: 2,
-        explanation: "World War II ended in 1945 with the surrender of Germany and Japan.",
+        explanation:
+          "World War II ended in 1945 with the surrender of Germany and Japan.",
       },
       {
         id: 2,
         question: "Who was the first President of the United States?",
-        options: ["Thomas Jefferson", "George Washington", "Abraham Lincoln", "Benjamin Franklin"],
+        options: [
+          "Thomas Jefferson",
+          "George Washington",
+          "Abraham Lincoln",
+          "Benjamin Franklin",
+        ],
         correct: 1,
-        explanation: "George Washington was the first President of the United States, serving from 1789 to 1797.",
+        explanation:
+          "George Washington was the first President of the United States, serving from 1789 to 1797.",
       },
     ],
     moderate: [
@@ -145,16 +170,23 @@ const QUESTIONS_DATABASE: Record<string, Record<string, Question[]>> = {
         question: "In what year did the Berlin Wall fall?",
         options: ["1987", "1988", "1989", "1990"],
         correct: 2,
-        explanation: "The Berlin Wall fell on November 9, 1989, marking the beginning of the end of the Cold War.",
+        explanation:
+          "The Berlin Wall fell on November 9, 1989, marking the beginning of the end of the Cold War.",
       },
     ],
     hard: [
       {
         id: 4,
         question: "Which treaty ended the Thirty Years' War?",
-        options: ["Treaty of Westphalia", "Peace of Augsburg", "Treaty of Münster", "Treaty of Osnabrück"],
+        options: [
+          "Treaty of Westphalia",
+          "Peace of Augsburg",
+          "Treaty of Münster",
+          "Treaty of Osnabrück",
+        ],
         correct: 0,
-        explanation: "The Treaty of Westphalia (1648) ended the Thirty Years' War and is considered the start of the modern nation-state system.",
+        explanation:
+          "The Treaty of Westphalia (1648) ended the Thirty Years' War and is considered the start of the modern nation-state system.",
       },
     ],
   },
@@ -163,9 +195,15 @@ const QUESTIONS_DATABASE: Record<string, Record<string, Question[]>> = {
       {
         id: 1,
         question: "What does CPU stand for?",
-        options: ["Central Processing Unit", "Central Power Unit", "Computer Processing Unit", "Central Processor Unit"],
+        options: [
+          "Central Processing Unit",
+          "Central Power Unit",
+          "Computer Processing Unit",
+          "Central Processor Unit",
+        ],
         correct: 0,
-        explanation: "CPU stands for Central Processing Unit, the main component of a computer that executes instructions.",
+        explanation:
+          "CPU stands for Central Processing Unit, the main component of a computer that executes instructions.",
       },
       {
         id: 2,
@@ -179,9 +217,15 @@ const QUESTIONS_DATABASE: Record<string, Record<string, Question[]>> = {
       {
         id: 3,
         question: "What does HTML stand for?",
-        options: ["Hyper Text Markup Language", "High Tech Modern Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"],
+        options: [
+          "Hyper Text Markup Language",
+          "High Tech Modern Language",
+          "Home Tool Markup Language",
+          "Hyperlinks and Text Markup Language",
+        ],
         correct: 0,
-        explanation: "HTML stands for HyperText Markup Language, used to create web pages.",
+        explanation:
+          "HTML stands for HyperText Markup Language, used to create web pages.",
       },
     ],
     hard: [
@@ -190,7 +234,8 @@ const QUESTIONS_DATABASE: Record<string, Record<string, Question[]>> = {
         question: "What is the time complexity of binary search?",
         options: ["O(n)", "O(n log n)", "O(log n)", "O(1)"],
         correct: 2,
-        explanation: "Binary search has a time complexity of O(log n) because it divides the search space in half with each iteration.",
+        explanation:
+          "Binary search has a time complexity of O(log n) because it divides the search space in half with each iteration.",
       },
     ],
   },
@@ -208,7 +253,8 @@ const QUESTIONS_DATABASE: Record<string, Record<string, Question[]>> = {
         question: "Which is the largest continent by area?",
         options: ["Africa", "Asia", "Europe", "Antarctica"],
         correct: 1,
-        explanation: "Asia is the largest continent by area, covering about 44.58 million square kilometers.",
+        explanation:
+          "Asia is the largest continent by area, covering about 44.58 million square kilometers.",
       },
     ],
     moderate: [
@@ -217,16 +263,23 @@ const QUESTIONS_DATABASE: Record<string, Record<string, Question[]>> = {
         question: "What is the capital of Australia?",
         options: ["Sydney", "Melbourne", "Canberra", "Brisbane"],
         correct: 2,
-        explanation: "Canberra is the capital city of Australia, not Sydney which is the most well-known city.",
+        explanation:
+          "Canberra is the capital city of Australia, not Sydney which is the most well-known city.",
       },
     ],
     hard: [
       {
         id: 4,
         question: "Which mountain range contains Mount Kilimanjaro?",
-        options: ["Atlas Mountains", "Rwenzori Mountains", "Eastern Arc Mountains", "Kenya Highlands"],
+        options: [
+          "Atlas Mountains",
+          "Rwenzori Mountains",
+          "Eastern Arc Mountains",
+          "Kenya Highlands",
+        ],
         correct: 2,
-        explanation: "Mount Kilimanjaro is part of the Eastern Arc Mountains in Tanzania.",
+        explanation:
+          "Mount Kilimanjaro is part of the Eastern Arc Mountains in Tanzania.",
       },
     ],
   },
@@ -235,9 +288,15 @@ const QUESTIONS_DATABASE: Record<string, Record<string, Question[]>> = {
       {
         id: 1,
         question: "Who wrote 'Romeo and Juliet'?",
-        options: ["Christopher Marlowe", "William Shakespeare", "Ben Jonson", "Edmund Spenser"],
+        options: [
+          "Christopher Marlowe",
+          "William Shakespeare",
+          "Ben Jonson",
+          "Edmund Spenser",
+        ],
         correct: 1,
-        explanation: "William Shakespeare wrote 'Romeo and Juliet', one of the most famous tragedies in English literature.",
+        explanation:
+          "William Shakespeare wrote 'Romeo and Juliet', one of the most famous tragedies in English literature.",
       },
     ],
     moderate: [
@@ -246,16 +305,23 @@ const QUESTIONS_DATABASE: Record<string, Record<string, Question[]>> = {
         question: "In '1984', what is the name of Big Brother's secret police?",
         options: ["Stasi", "Thought Police", "Gestapo", "Secret Service"],
         correct: 1,
-        explanation: "The Thought Police is the secret police force in George Orwell's '1984'.",
+        explanation:
+          "The Thought Police is the secret police force in George Orwell's '1984'.",
       },
     ],
     hard: [
       {
         id: 3,
         question: "Who is the author of 'One Hundred Years of Solitude'?",
-        options: ["Pablo Neruda", "Gabriel García Márquez", "Jorge Luis Borges", "Julio Cortázar"],
+        options: [
+          "Pablo Neruda",
+          "Gabriel García Márquez",
+          "Jorge Luis Borges",
+          "Julio Cortázar",
+        ],
         correct: 1,
-        explanation: "Gabriel García Márquez wrote 'One Hundred Years of Solitude', a masterpiece of magical realism.",
+        explanation:
+          "Gabriel García Márquez wrote 'One Hundred Years of Solitude', a masterpiece of magical realism.",
       },
     ],
   },
@@ -266,7 +332,8 @@ const QUESTIONS_DATABASE: Record<string, Record<string, Question[]>> = {
         question: "How many players are on a basketball team on the court?",
         options: ["4", "5", "6", "7"],
         correct: 1,
-        explanation: "A basketball team has 5 players on the court during a game.",
+        explanation:
+          "A basketball team has 5 players on the court during a game.",
       },
     ],
     moderate: [
@@ -275,7 +342,8 @@ const QUESTIONS_DATABASE: Record<string, Record<string, Question[]>> = {
         question: "In tennis, what is a score of 40-40 called?",
         options: ["Deuce", "Advantage", "Match point", "Break point"],
         correct: 0,
-        explanation: "In tennis, a score of 40-40 is called 'Deuce', and a player must win by 2 points from that position.",
+        explanation:
+          "In tennis, a score of 40-40 is called 'Deuce', and a player must win by 2 points from that position.",
       },
     ],
     hard: [
@@ -284,7 +352,8 @@ const QUESTIONS_DATABASE: Record<string, Record<string, Question[]>> = {
         question: "How many innings are in a standard baseball game?",
         options: ["7", "8", "9", "10"],
         correct: 2,
-        explanation: "A standard baseball game consists of 9 innings, with each team getting a turn to bat and field.",
+        explanation:
+          "A standard baseball game consists of 9 innings, with each team getting a turn to bat and field.",
       },
     ],
   },
@@ -307,9 +376,12 @@ function TopicsLanding() {
       <div className="bg-gradient-to-br from-primary/5 to-secondary/5 py-12 min-h-[70vh]">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto mb-12">
-            <h1 className="text-4xl font-bold text-foreground mb-4">Choose Your Topic</h1>
+            <h1 className="text-4xl font-bold text-foreground mb-4">
+              Choose Your Topic
+            </h1>
             <p className="text-lg text-muted-foreground">
-              Pick a subject you'd like to test your knowledge on. Each topic has questions at multiple difficulty levels.
+              Pick a subject you'd like to test your knowledge on. Each topic
+              has questions at multiple difficulty levels.
             </p>
           </div>
 
@@ -343,7 +415,13 @@ function TopicsLanding() {
 }
 
 // Topic Detail with Difficulty Selection
-function TopicDifficulty({ topic, onSelectDifficulty }: { topic: Topic; onSelectDifficulty: (diff: string) => void }) {
+function TopicDifficulty({
+  topic,
+  onSelectDifficulty,
+}: {
+  topic: Topic;
+  onSelectDifficulty: (diff: string) => void;
+}) {
   return (
     <Layout>
       <div className="bg-gradient-to-br from-primary/5 to-secondary/5 py-12 min-h-[70vh]">
@@ -359,16 +437,21 @@ function TopicDifficulty({ topic, onSelectDifficulty }: { topic: Topic; onSelect
 
             <div className="bg-card rounded-xl p-8 border border-border mb-8 text-center">
               <div className="text-6xl mb-4">{topic.icon}</div>
-              <h1 className="text-4xl font-bold text-foreground mb-3">{topic.name}</h1>
+              <h1 className="text-4xl font-bold text-foreground mb-3">
+                {topic.name}
+              </h1>
               <p className="text-muted-foreground mb-4">{topic.description}</p>
               <p className="text-sm text-primary font-semibold">
-                {topic.questionCount} questions available across all difficulty levels
+                {topic.questionCount} questions available across all difficulty
+                levels
               </p>
             </div>
 
             {/* Difficulty Selection */}
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Select Difficulty Level</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">
+                Select Difficulty Level
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {/* Easy */}
                 <button
@@ -377,8 +460,12 @@ function TopicDifficulty({ topic, onSelectDifficulty }: { topic: Topic; onSelect
                 >
                   <div className="absolute top-0 right-0 w-20 h-20 bg-green-50 -mr-8 -mt-8 group-hover:bg-green-100 transition rounded-full" />
                   <div className="relative z-10">
-                    <div className="text-3xl font-bold text-green-600 mb-2">🟢</div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">Easy</h3>
+                    <div className="text-3xl font-bold text-green-600 mb-2">
+                      🟢
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">
+                      Easy
+                    </h3>
                     <p className="text-sm text-muted-foreground mb-4">
                       Perfect for beginners learning the basics
                     </p>
@@ -395,8 +482,12 @@ function TopicDifficulty({ topic, onSelectDifficulty }: { topic: Topic; onSelect
                 >
                   <div className="absolute top-0 right-0 w-20 h-20 bg-yellow-50 -mr-8 -mt-8 group-hover:bg-yellow-100 transition rounded-full" />
                   <div className="relative z-10">
-                    <div className="text-3xl font-bold text-yellow-600 mb-2">🟡</div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">Moderate</h3>
+                    <div className="text-3xl font-bold text-yellow-600 mb-2">
+                      🟡
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">
+                      Moderate
+                    </h3>
                     <p className="text-sm text-muted-foreground mb-4">
                       Challenge yourself with intermediate questions
                     </p>
@@ -413,8 +504,12 @@ function TopicDifficulty({ topic, onSelectDifficulty }: { topic: Topic; onSelect
                 >
                   <div className="absolute top-0 right-0 w-20 h-20 bg-red-50 -mr-8 -mt-8 group-hover:bg-red-100 transition rounded-full" />
                   <div className="relative z-10">
-                    <div className="text-3xl font-bold text-red-600 mb-2">🔴</div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">Hard</h3>
+                    <div className="text-3xl font-bold text-red-600 mb-2">
+                      🔴
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">
+                      Hard
+                    </h3>
                     <p className="text-sm text-muted-foreground mb-4">
                       Master advanced topics and deep concepts
                     </p>
@@ -433,10 +528,22 @@ function TopicDifficulty({ topic, onSelectDifficulty }: { topic: Topic; onSelect
 }
 
 // Quiz Component (unchanged)
-function QuizInterface({ topic, difficulty, questions, onComplete }: { topic: Topic; difficulty: string; questions: Question[]; onComplete: (results: QuizResults) => void }) {
+function QuizInterface({
+  topic,
+  difficulty,
+  questions,
+  onComplete,
+}: {
+  topic: Topic;
+  difficulty: string;
+  questions: Question[];
+  onComplete: (results: QuizResults) => void;
+}) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
-  const [answers, setAnswers] = useState<(number | null)[]>(new Array(questions.length).fill(null));
+  const [answers, setAnswers] = useState<(number | null)[]>(
+    new Array(questions.length).fill(null),
+  );
 
   const question = questions[currentQuestionIndex];
 
@@ -450,7 +557,7 @@ function QuizInterface({ topic, difficulty, questions, onComplete }: { topic: To
       setSelectedAnswer(newAnswers[currentQuestionIndex + 1] ?? null);
     } else {
       const score = newAnswers.filter(
-        (ans, idx) => ans === questions[idx].correct
+        (ans, idx) => ans === questions[idx].correct,
       ).length;
 
       onComplete({
@@ -474,13 +581,18 @@ function QuizInterface({ topic, difficulty, questions, onComplete }: { topic: To
                   Question {currentQuestionIndex + 1} of {questions.length}
                 </span>
                 <span className="text-sm font-semibold text-muted-foreground">
-                  {Math.round(((currentQuestionIndex + 1) / questions.length) * 100)}%
+                  {Math.round(
+                    ((currentQuestionIndex + 1) / questions.length) * 100,
+                  )}
+                  %
                 </span>
               </div>
               <div className="w-full bg-muted rounded-full h-2">
                 <div
                   className="bg-primary h-2 rounded-full transition-all"
-                  style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
+                  style={{
+                    width: `${((currentQuestionIndex + 1) / questions.length) * 100}%`,
+                  }}
                 />
               </div>
             </div>
@@ -519,7 +631,9 @@ function QuizInterface({ topic, difficulty, questions, onComplete }: { topic: To
                   : "bg-muted text-muted-foreground cursor-not-allowed"
               }`}
             >
-              {currentQuestionIndex === questions.length - 1 ? "Finish Quiz" : "Next Question"}
+              {currentQuestionIndex === questions.length - 1
+                ? "Finish Quiz"
+                : "Next Question"}
             </button>
           </div>
         </div>
@@ -529,9 +643,18 @@ function QuizInterface({ topic, difficulty, questions, onComplete }: { topic: To
 }
 
 // Results Component (unchanged)
-function QuizResults({ results, onRetry }: { results: QuizResults; onRetry: () => void }) {
+function QuizResults({
+  results,
+  onRetry,
+}: {
+  results: QuizResults;
+  onRetry: () => void;
+}) {
   const percentage = Math.round((results.score / results.total) * 100);
-  const questions = QUESTIONS_DATABASE[results.topic.toLowerCase()]?.[results.difficulty.toLowerCase()] || [];
+  const questions =
+    QUESTIONS_DATABASE[results.topic.toLowerCase()]?.[
+      results.difficulty.toLowerCase()
+    ] || [];
 
   return (
     <Layout>
@@ -540,7 +663,9 @@ function QuizResults({ results, onRetry }: { results: QuizResults; onRetry: () =
           <div className="max-w-2xl mx-auto">
             <div className="bg-card rounded-xl p-8 border border-border shadow-md mb-8 text-center">
               <Trophy className="w-16 h-16 text-secondary mx-auto mb-4" />
-              <h2 className="text-3xl font-bold text-foreground mb-2">Quiz Complete!</h2>
+              <h2 className="text-3xl font-bold text-foreground mb-2">
+                Quiz Complete!
+              </h2>
               <p className="text-muted-foreground mb-8">
                 {results.topic} • {results.difficulty}
               </p>
@@ -556,21 +681,26 @@ function QuizResults({ results, onRetry }: { results: QuizResults; onRetry: () =
                   {percentage >= 80
                     ? "Excellent work!"
                     : percentage >= 60
-                    ? "Good job!"
-                    : percentage >= 40
-                    ? "Not bad, keep practicing!"
-                    : "Keep learning!"}
+                      ? "Good job!"
+                      : percentage >= 40
+                        ? "Not bad, keep practicing!"
+                        : "Keep learning!"}
                 </p>
               </div>
 
               <div className="bg-background rounded-lg p-6 mb-8 text-left max-h-96 overflow-y-auto">
-                <h3 className="font-bold text-foreground mb-4">Answer Review</h3>
+                <h3 className="font-bold text-foreground mb-4">
+                  Answer Review
+                </h3>
                 {questions.map((q, idx) => {
                   const userAnswer = results.answers[idx];
                   const isCorrect = userAnswer === q.correct;
 
                   return (
-                    <div key={idx} className="mb-4 pb-4 border-b border-border last:border-0">
+                    <div
+                      key={idx}
+                      className="mb-4 pb-4 border-b border-border last:border-0"
+                    >
                       <div className="flex items-start gap-3 mb-2">
                         {isCorrect ? (
                           <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -578,10 +708,15 @@ function QuizResults({ results, onRetry }: { results: QuizResults; onRetry: () =
                           <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                         )}
                         <div className="flex-1">
-                          <p className="text-sm font-semibold text-foreground">{q.question}</p>
+                          <p className="text-sm font-semibold text-foreground">
+                            {q.question}
+                          </p>
                           {!isCorrect && (
                             <p className="text-xs text-muted-foreground mt-1">
-                              Your answer: {userAnswer !== null ? q.options[userAnswer] : "Not answered"}
+                              Your answer:{" "}
+                              {userAnswer !== null
+                                ? q.options[userAnswer]
+                                : "Not answered"}
                             </p>
                           )}
                           <p className="text-xs text-green-600 mt-1">
@@ -621,7 +756,9 @@ function QuizResults({ results, onRetry }: { results: QuizResults; onRetry: () =
 // Main Quiz Component with Routing
 export default function Quiz() {
   const { topic } = useParams<{ topic?: string }>();
-  const [state, setState] = useState<QuizState>(topic ? "difficulty" : "selection");
+  const [state, setState] = useState<QuizState>(
+    topic ? "difficulty" : "selection",
+  );
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
   const [results, setResults] = useState<QuizResults | null>(null);
 

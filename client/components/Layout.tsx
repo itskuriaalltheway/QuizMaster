@@ -17,11 +17,16 @@ export default function Layout({ children }: LayoutProps) {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition">
+            <Link
+              to="/"
+              className="flex items-center gap-2 hover:opacity-80 transition"
+            >
               <div className="bg-primary text-primary-foreground p-2 rounded-lg">
                 <Brain className="w-6 h-6" />
               </div>
-              <h1 className="text-xl font-bold text-foreground hidden sm:block">QuizMaster</h1>
+              <h1 className="text-xl font-bold text-foreground hidden sm:block">
+                QuizMaster
+              </h1>
             </Link>
 
             {/* Navigation */}
@@ -62,9 +67,7 @@ export default function Layout({ children }: LayoutProps) {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1">
-        {children}
-      </main>
+      <main className="flex-1">{children}</main>
 
       {/* Footer */}
       <footer className="bg-card border-t border-border mt-12">
@@ -79,17 +82,46 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <h4 className="font-semibold text-foreground mb-4">Features</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition">Multiple Topics</a></li>
-                <li><a href="#" className="hover:text-primary transition">Difficulty Levels</a></li>
-                <li><a href="#" className="hover:text-primary transition">Instant Feedback</a></li>
+                <li>
+                  <a href="#" className="hover:text-primary transition">
+                    Multiple Topics
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary transition">
+                    Difficulty Levels
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-primary transition">
+                    Instant Feedback
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
+              <h4 className="font-semibold text-foreground mb-4">
+                Quick Links
+              </h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link to="/" className="hover:text-primary transition">Home</Link></li>
-                <li><Link to="/quiz" className="hover:text-primary transition">Start Quiz</Link></li>
-                <li><Link to="/leaderboard" className="hover:text-primary transition">Leaderboard</Link></li>
+                <li>
+                  <Link to="/" className="hover:text-primary transition">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/quiz" className="hover:text-primary transition">
+                    Start Quiz
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/leaderboard"
+                    className="hover:text-primary transition"
+                  >
+                    Leaderboard
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

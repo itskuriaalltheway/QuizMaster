@@ -18,28 +18,33 @@ QuizMaster is a modern, production-ready quiz application built with React, Vite
 ## ✨ Key Features
 
 ### 🧠 Smart Learning
+
 - Comprehensive quiz questions across **6+ topics**
 - Carefully crafted questions designed to test real knowledge
 - Instant feedback with detailed explanations for every answer
 
 ### 🎚️ Difficulty Levels
+
 - **Easy** - Perfect for beginners learning the basics
 - **Moderate** - Challenge yourself with intermediate questions
 - **Hard** - Master advanced topics and concepts
 
 ### 📊 Progress Tracking
+
 - Real-time quiz progress indicator
 - Immediate score feedback with percentage breakdown
 - Answer review showing correct answers and explanations
 - Performance comparison across different difficulty levels
 
 ### 🏆 Global Leaderboard
+
 - Compete with quiz enthusiasts worldwide
 - Filter leaderboard by topic or difficulty level
 - Medal recognition for top 3 performers
 - Detailed ranking with scores and completion dates
 
 ### 🎨 Modern Design
+
 - Beautiful, responsive user interface
 - Works seamlessly on desktop, tablet, and mobile
 - Smooth animations and transitions
@@ -48,7 +53,8 @@ QuizMaster is a modern, production-ready quiz application built with React, Vite
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - pnpm (recommended) or npm/yarn
 
 ### Installation
@@ -134,12 +140,12 @@ const QUESTIONS_DATABASE: Record<string, Record<string, Question[]>> = {
         question: "Your question here?",
         options: ["Option A", "Option B", "Option C", "Option D"],
         correct: 0, // Index of correct answer
-        explanation: "Explanation of why this is correct."
-      }
+        explanation: "Explanation of why this is correct.",
+      },
       // Add more questions...
-    ]
-  }
-}
+    ],
+  },
+};
 ```
 
 ### Adding New Topics
@@ -155,8 +161,8 @@ Edit `client/global.css` and `tailwind.config.ts` to change the color scheme:
 ```css
 /* client/global.css */
 :root {
-  --primary: 262 80% 50%;      /* Main accent color */
-  --secondary: 28 95% 58%;     /* Secondary color */
+  --primary: 262 80% 50%; /* Main accent color */
+  --secondary: 28 95% 58%; /* Secondary color */
   /* ... other colors ... */
 }
 ```
@@ -196,6 +202,7 @@ pnpm format.fix    # Format code with Prettier
 ## 📱 Responsive Design
 
 QuizMaster is fully responsive and tested on:
+
 - Desktop (1920px and above)
 - Tablet (768px to 1024px)
 - Mobile (320px to 767px)

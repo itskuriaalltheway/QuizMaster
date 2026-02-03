@@ -123,17 +123,19 @@ export default function Leaderboard() {
   const [selectedFilter, setSelectedFilter] = useState<string>("");
 
   const topics = [...new Set(MOCK_LEADERBOARD.map((entry) => entry.topic))];
-  const difficulties = [...new Set(MOCK_LEADERBOARD.map((entry) => entry.difficulty))];
+  const difficulties = [
+    ...new Set(MOCK_LEADERBOARD.map((entry) => entry.difficulty)),
+  ];
 
   let filteredLeaderboard = MOCK_LEADERBOARD;
 
   if (filterType === "topic" && selectedFilter) {
     filteredLeaderboard = MOCK_LEADERBOARD.filter(
-      (entry) => entry.topic === selectedFilter
+      (entry) => entry.topic === selectedFilter,
     );
   } else if (filterType === "difficulty" && selectedFilter) {
     filteredLeaderboard = MOCK_LEADERBOARD.filter(
-      (entry) => entry.difficulty === selectedFilter
+      (entry) => entry.difficulty === selectedFilter,
     );
   }
 
@@ -141,7 +143,9 @@ export default function Leaderboard() {
     if (rank === 1) return <span className="text-2xl">🥇</span>;
     if (rank === 2) return <span className="text-2xl">🥈</span>;
     if (rank === 3) return <span className="text-2xl">🥉</span>;
-    return <span className="text-lg font-bold text-muted-foreground">#{rank}</span>;
+    return (
+      <span className="text-lg font-bold text-muted-foreground">#{rank}</span>
+    );
   };
 
   return (
@@ -153,7 +157,9 @@ export default function Leaderboard() {
             <div className="flex items-center gap-4 mb-8">
               <Trophy className="w-10 h-10 text-secondary" />
               <div>
-                <h1 className="text-4xl font-bold text-foreground">Global Leaderboard</h1>
+                <h1 className="text-4xl font-bold text-foreground">
+                  Global Leaderboard
+                </h1>
                 <p className="text-muted-foreground">
                   See how you rank against other quiz enthusiasts worldwide
                 </p>
@@ -250,7 +256,9 @@ export default function Leaderboard() {
                       <div
                         key={idx}
                         className={`grid grid-cols-12 gap-4 p-6 items-center text-sm hover:bg-muted/50 transition ${
-                          entry.rank <= 3 ? "bg-yellow-50 dark:bg-yellow-950/10" : ""
+                          entry.rank <= 3
+                            ? "bg-yellow-50 dark:bg-yellow-950/10"
+                            : ""
                         }`}
                       >
                         <div className="col-span-1 flex justify-center">
@@ -268,8 +276,8 @@ export default function Leaderboard() {
                               entry.difficulty === "Easy"
                                 ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
                                 : entry.difficulty === "Moderate"
-                                ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
-                                : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
+                                  ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
+                                  : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
                             }`}
                           >
                             {entry.difficulty}
@@ -303,7 +311,9 @@ export default function Leaderboard() {
                     <div
                       key={idx}
                       className={`p-4 hover:bg-muted/50 transition ${
-                        entry.rank <= 3 ? "bg-yellow-50 dark:bg-yellow-950/10" : ""
+                        entry.rank <= 3
+                          ? "bg-yellow-50 dark:bg-yellow-950/10"
+                          : ""
                       }`}
                     >
                       <div className="flex items-start gap-3 mb-3">
@@ -311,8 +321,12 @@ export default function Leaderboard() {
                           {getMedalIcon(entry.rank)}
                         </div>
                         <div className="flex-1">
-                          <p className="font-semibold text-foreground">{entry.name}</p>
-                          <p className="text-xs text-muted-foreground">{entry.topic}</p>
+                          <p className="font-semibold text-foreground">
+                            {entry.name}
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            {entry.topic}
+                          </p>
                         </div>
                         <div className="text-right">
                           <div className="font-bold text-primary text-lg">
@@ -323,8 +337,8 @@ export default function Leaderboard() {
                               entry.difficulty === "Easy"
                                 ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
                                 : entry.difficulty === "Moderate"
-                                ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
-                                : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
+                                  ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
+                                  : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
                             }`}
                           >
                             {entry.difficulty}
@@ -357,8 +371,10 @@ export default function Leaderboard() {
               <div className="bg-card rounded-lg p-6 border border-border text-center">
                 <div className="text-3xl font-bold text-secondary mb-2">
                   {(
-                    filteredLeaderboard.reduce((acc, e) => acc + e.percentage, 0) /
-                    filteredLeaderboard.length
+                    filteredLeaderboard.reduce(
+                      (acc, e) => acc + e.percentage,
+                      0,
+                    ) / filteredLeaderboard.length
                   ).toFixed(1)}
                   %
                 </div>
