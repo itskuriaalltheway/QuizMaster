@@ -4,6 +4,7 @@
   "installCommand": "pnpm install --frozen-lockfile",
   "framework": "vite",
   "nodeVersion": "18.x",
+  "packageManager": "pnpm@10",
   "git": {
     "deploymentEnabled": true
   },
