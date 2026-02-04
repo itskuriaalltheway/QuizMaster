@@ -3,10 +3,6 @@
   "outputDirectory": "dist/spa",
   "installCommand": "pnpm install --frozen-lockfile",
   "framework": "vite",
-  "packageManager": "pnpm@10",
-  "env": {
-    "NODE_ENV": "production"
-  },
   "routes": [
     {
       "src": "/api/(.*)",
