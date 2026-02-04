@@ -1,8 +1,9 @@
 {
-  "buildCommand": "npm run build:client",
+  "buildCommand": "pnpm install && pnpm run build:client",
   "outputDirectory": "dist/spa",
-  "installCommand": "npm install",
   "framework": "vite",
+  "nodeVersion": "18.x",
+  "packageManager": "pnpm@10.14.0",
   "rewrites": [
     {
       "source": "/api/(.*)",
